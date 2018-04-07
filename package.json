@@ -16,12 +16,13 @@
     "url": "git+https://github.com/damiannolan/babel-restify-api-v1.git"
   },
   "scripts": {
-	"babel-node": "babel-node --presets=env",
-	"start": "node server.js",
-	"watch": "nodemon --exec npm run babel-node -- src/server.js | bunyan"
+    "babel-node": "babel-node --presets=env",
+    "start": "node server.js",
+    "watch": "nodemon --exec npm run babel-node -- src/server.js | bunyan"
   },
   "dependencies": {
     "bunyan": "^1.8.12",
+    "config": "^1.30.0",
     "restify": "^4.3.3",
     "restify-cors-middleware": "^1.1.0"
   },

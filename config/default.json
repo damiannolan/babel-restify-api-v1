@@ -1,0 +1,9 @@
+{
+    "Server": {
+        "name": "babel-restify-api",
+        "port": 3000
+    },
+    "Logger": {
+        "level": "trace"
+    }
+}
