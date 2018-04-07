@@ -1,0 +1,21 @@
+{
+  "name": "babael-restify-api",
+  "version": "0.0.1",
+  "description": "RESTful API for primarily handling interactions with Microsoft's Cognitive Services for Facial Recognition",
+  "license": "MIT",
+  "author": "Damian Nolan",
+  "keywords": [
+    "restify",
+	"es6",
+	"node",
+	"facial login"
+  ],
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damiannolan/babel-restify-api-v1.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
