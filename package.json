@@ -21,10 +21,14 @@
     "watch": "nodemon --exec npm run babel-node -- src/server.js | bunyan"
   },
   "dependencies": {
+    "atob": "^2.1.0",
     "bunyan": "^1.8.12",
     "config": "^1.30.0",
+    "request": "^2.85.0",
+    "request-promise-native": "^1.0.5",
     "restify": "^4.3.3",
-    "restify-cors-middleware": "^1.1.0"
+    "restify-cors-middleware": "^1.1.0",
+    "restify-errors": "^6.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

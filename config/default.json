@@ -11,9 +11,9 @@
     "Services": {
         "Microsoft": {
             "FaceAPI": {
-                "Endpoint": "https://westcentralus.api.cognitive.microsoft.com/face/v1.0",
-                "APIKey1": "96069275ef1d49609e354d7931be32fa",
-                "APIKey2": "83971e54f34f4973ba58feccf9a1cc00"
+                "endpoint": "https://westcentralus.api.cognitive.microsoft.com/face/v1.0",
+                "apiKey1": "96069275ef1d49609e354d7931be32fa",
+                "apiKey2": "83971e54f34f4973ba58feccf9a1cc00"
             }
         }
     }
