@@ -1,4 +1,7 @@
-# Logs
+# System Files
+.DS_STORE
+
+# # Logs
 logs
 *.log
 npm-debug.log*
