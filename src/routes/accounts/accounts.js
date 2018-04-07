@@ -17,7 +17,7 @@ const register = async (req, res) => {
         const personId = await createPerson(req.body.username);
         const persistedFaceId = await addFace(personId, req.body.imageUrl);
 
-        const response = { // temperorary
+        const response = { // temp
             personId: personId,
             persistedFaceId: persistedFaceId
         };
@@ -31,12 +31,14 @@ const register = async (req, res) => {
 const login = async (req, res) => {
     try {
         const faceId = await detectFace(req.body.imageUrl);
-        log.debug('Log Debugging Face Id', faceId);
-        const personId = 'b6177b61-e3e1-4fe6-963e-476f7613f945'; // collect from db
+         // collect the personId from db based on username provided in req
+        const personId = 'b6177b61-e3e1-4fe6-963e-476f7613f945';
 
-        const verify = await verifyFace(faceId, personId);
+        // Get the result if the confidence is above 70 then accept
+        // Otherwise reject
+        const result = await verifyFace(faceId, personId);
 
-        res.send(200, { result: 'success' });
+        res.send(200, { result: result });
     } catch (e) {
         log.error(e);
     }
