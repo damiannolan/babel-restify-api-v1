@@ -24,7 +24,8 @@ const register = async (req, res) => {
 
         res.send(201, response);
     } catch (e) {
-        log.error(`Failed to find face for ${req.body.username}`);
+        log.error(e);
+        res.send(400, { error: 'Bad Request - Failed to register' });
     }
 };
 
@@ -38,9 +39,15 @@ const login = async (req, res) => {
         // Otherwise reject
         const result = await verifyFace(faceId, personId);
 
-        res.send(200, { result: result });
+        if(result.confidence > 70) {
+            res.send(200, { result: result });
+        } else {
+            res.send(400, { error: 'Bad Request - Failed to login' });
+        }
+        
     } catch (e) {
         log.error(e);
+        res.send(400, { error: 'Bad Request - Failed to login' });
     }
 };
 
@@ -65,7 +72,7 @@ const createPerson = async (username) => {
 
         return response.body.personId;
     } catch (e) {
-        log.error(e);
+        throw new Error(`Failed to create person for - ${username}`);
     }
 };
 
@@ -88,7 +95,7 @@ const addFace = async (personId, imageUrl) => {
 
         return msResp.persistedFaceId;
     } catch (e) {
-        log.error(e);
+        throw new Error(`Failed to add face for person - ${personId}`);
     }
 };
 
@@ -111,7 +118,7 @@ const detectFace = async (imageUrl) => {
 
         return msResp[0].faceId;
     } catch (e) {
-        log.error(e);
+        throw new Error('Failed to detect face');
     }
 };
 
@@ -141,5 +148,6 @@ const verifyFace = async (faceId, personId) => {
         return response.body;
     } catch (e) {
         log.error('Problem verifying face', e);
+        throw new Error(`Failed to verify face for person - ${personId}`);
     }
 };
