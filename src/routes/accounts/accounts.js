@@ -29,13 +29,13 @@ const login = async (req, res) => {
     try {
         const faceId = await detectFace(req.body.imageUrl);
          // collect the personId from db based on username provided in req
-        const personId = 'b6177b61-e3e1-4fe6-963e-476f7613f945';
+        const personId = 'e859d69c-9db2-4e80-b676-f103317edc99';
 
         // Get the result if the confidence is above 70 then accept
         // Otherwise reject
         const result = await verifyFace(faceId, personId);
 
-        if(result.confidence > 70) {
+        if(result.confidence > .70) {
             res.send(200, { result: result });
         } else {
             res.send(400, { error: 'Bad Request - Failed to login' });
