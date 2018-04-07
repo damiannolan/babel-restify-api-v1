@@ -1,7 +1,9 @@
 {
     "Server": {
         "name": "babel-restify-api",
-        "port": 3000
+        "port": 3000,
+        "corsHeaders": ["Origin", "Authorization"],
+        "corsOrigins": ["*"]
     },
     "Logger": {
         "level": "trace"
