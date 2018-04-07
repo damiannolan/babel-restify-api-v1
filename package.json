@@ -6,9 +6,9 @@
   "author": "Damian Nolan",
   "keywords": [
     "restify",
-	"es6",
-	"node",
-	"facial login"
+    "es6",
+    "node",
+    "facial login"
   ],
   "main": "server.js",
   "repository": {
@@ -17,5 +17,15 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "restify": "^4.3.3",
+    "restify-cors-middleware": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "nodemon": "^1.17.3"
   }
 }
