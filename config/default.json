@@ -17,5 +17,11 @@
                 "personGroupId": "person-db"
             }
         }
+    },
+    "Database": {
+        "MongoDB": {
+            "uri": "mongodb://localhost",
+            "name": "facedb"
+        }
     }
 }
