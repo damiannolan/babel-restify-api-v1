@@ -1,10 +1,9 @@
 import * as restify from 'restify';
 import request from 'request-promise-native';
-import { logger as log } from '../../logger';
-import { addFace, createPerson, detectFace, verifyFace } from '../../services';
-
 import { createUser } from '../../db/commands';
 import { getUserIdByUsername } from '../../db/queries';
+import { logger as log } from '../../logger';
+import { addFace, createPerson, detectFace, verifyFace } from '../../services';
 
 export const bootstrap = (server) => {
     server.post('/accounts/register', register);
@@ -39,11 +38,10 @@ const login = async (req, res) => {
         if(result.confidence > .70) { // > 70% accuracy is accepted
             res.send(200, { result: result });
         } else {
-            res.send(400, { error: 'Bad Request - Failed to login' });
+            res.send(400, { error: 'Bad Request - Failed to verify face' });
         }
         
     } catch (e) {
-        log.error(e);
-        res.send(400, { error: 'Bad Request - Failed to login' });
+        res.send(400, { error: e.message });
     }
 };
