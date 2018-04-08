@@ -21,7 +21,6 @@
     "watch": "nodemon --exec npm run babel-node -- src/server.js | bunyan"
   },
   "dependencies": {
-    "atob": "^2.1.0",
     "bunyan": "^1.8.12",
     "config": "^1.30.0",
     "request": "^2.85.0",
