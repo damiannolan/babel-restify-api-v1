@@ -1,8 +1,6 @@
-# Facial Login REST API 
-### Using Babel Node and Restify
+# Babel Restify API for Facial Auth Services
 
-RESTful API for primarily handling interactions with Microsoft's Cognitive Services for Facial Recognition
-
+This repository contains a [Node.js](https://nodejs.org/en/) RESTful api service for facial recognition authentication. The service employs [Microsoft's Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/) for [Facial Recognition and Detection](https://azure.microsoft.com/en-us/services/cognitive-services/face/).
 
 ## Prerequisites
 
