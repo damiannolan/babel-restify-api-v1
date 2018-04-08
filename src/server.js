@@ -11,6 +11,6 @@ bootstrapDatabase();
 bootstrapRoutes(server);
 
 const serverName = config.get('Server.name');
-const port = config.get('Server.port');
+const port = process.env.PORT || config.get('Server.port');
 
 server.listen(port, () => log.info(`${serverName} started and listening on port ${port}`));
