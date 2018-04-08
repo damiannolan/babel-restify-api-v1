@@ -3,7 +3,7 @@ import request from 'request-promise-native';
 import { logger as log } from '../../logger';
 import { addFace, createPerson, detectFace, verifyFace } from '../../services';
 
-import { createUser } from '../../db/model';
+import { createUser } from '../../db/commands';
 
 export const bootstrap = (server) => {
     server.post('/accounts/register', register);

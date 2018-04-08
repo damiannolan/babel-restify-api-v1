@@ -27,17 +27,3 @@ const UserModel = mongoose.Schema({
 });
 
 export const User = mongoose.model('User', UserModel);
-
-export const createUser = async (userId, username, persistedFaceId) => {
-    try {
-        const user = new User({
-            userId: userId,
-            username: username,
-            persistedFaceId: persistedFaceId
-        });
-
-        return await user.save();
-    } catch (e) {
-        throw new Error(`Failed to create user ${username} -> already existed`, e);
-    }   
-};
