@@ -17,7 +17,7 @@
   },
   "scripts": {
     "babel-node": "babel-node --presets=env",
-    "start": "node server.js",
+    "start": "babel-node -- src/server.js | bunyan",
     "watch": "nodemon --exec npm run babel-node -- src/server.js | bunyan"
   },
   "dependencies": {
