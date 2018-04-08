@@ -1,4 +1,6 @@
-# babel-restify-api-v1
+# Facial Login REST API 
+### Using Babel Node and Restify
+
 RESTful API for primarily handling interactions with Microsoft's Cognitive Services for Facial Recognition
 
 
@@ -10,6 +12,8 @@ Download and install the following prerequisties in order to get started.
 - [MongoDB](https://www.mongodb.com/)
 
 ## Quickstart
+
+Follow the following set of simple instructions in order to get up and running quickly in a development environment.
 
 1. Globally install bunyan for logging
 ```
