@@ -38,3 +38,25 @@ mongod
 ```
 npm run watch
 ```
+
+## Facial Authentication
+
+The service exposes two endpoints for Facial Authentication -  registration and login.
+
+### Registration
+- `/accounts/register`
+### Login
+- `/accounts/login`
+
+Both of these endpoints take a JSON Object body as part of the Request containing two fields:
+
+- Username
+- Image Data Url - Base64 Encoded Image Data Url - [See Here!](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) 
+
+### Example
+
+```json
+{
+    username: 'YourAwesomeUsername',
+    imageUrl: 'data:image/jpeg;base64,/9j/4AAQSkZ...FjWa0aP/Z'
+}
