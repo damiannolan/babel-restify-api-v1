@@ -4,6 +4,7 @@ import { logger as log } from '../../logger';
 import { addFace, createPerson, detectFace, verifyFace } from '../../services';
 
 import { createUser } from '../../db/commands';
+import { getUserIdByUsername } from '../../db/queries';
 
 export const bootstrap = (server) => {
     server.post('/accounts/register', register);
@@ -31,15 +32,11 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
     try {
+        const userId = await getUserIdByUsername(req.body.username);
         const faceId = await detectFace(req.body.imageUrl);
-         // collect the personId from db based on username provided in req
-        const personId = 'e859d69c-9db2-4e80-b676-f103317edc99';
+        const result = await verifyFace(faceId, userId);
 
-        // Get the result if the confidence is above 70 then accept
-        // Otherwise reject
-        const result = await verifyFace(faceId, personId);
-
-        if(result.confidence > .70) {
+        if(result.confidence > .70) { // > 70% accuracy is accepted
             res.send(200, { result: result });
         } else {
             res.send(400, { error: 'Bad Request - Failed to login' });
