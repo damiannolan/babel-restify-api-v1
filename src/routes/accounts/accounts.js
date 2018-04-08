@@ -3,6 +3,8 @@ import request from 'request-promise-native';
 import { logger as log } from '../../logger';
 import { addFace, createPerson, detectFace, verifyFace } from '../../services';
 
+import { createUser } from '../../db/model';
+
 export const bootstrap = (server) => {
     server.post('/accounts/register', register);
     server.post('/accounts/login', login);
@@ -12,16 +14,18 @@ const register = async (req, res) => {
     try {
         const personId = await createPerson(req.body.username);
         const persistedFaceId = await addFace(personId, req.body.imageUrl);
+        const dbResp = await createUser(personId, req.body.username, persistedFaceId);
 
-        const response = { // temp
-            personId: personId,
-            persistedFaceId: persistedFaceId
+        const payload = {
+            persistedFaceId: dbResp.persistedFaceId,
+            username: dbResp.username,
+            userId: dbResp.userId
         };
 
-        res.send(201, response);
+        res.send(201, payload);
     } catch (e) {
         log.error(e);
-        res.send(400, { error: 'Bad Request - Failed to register' });
+        res.send(400, { error: e.message });
     }
 };
 

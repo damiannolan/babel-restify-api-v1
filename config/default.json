@@ -21,7 +21,7 @@
     "Database": {
         "MongoDB": {
             "uri": "mongodb://localhost",
-            "name": "facedb"
+            "name": "testfacedb"
         }
     }
 }
