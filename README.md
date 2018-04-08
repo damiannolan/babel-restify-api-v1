@@ -55,7 +55,7 @@ Both of these endpoints take a JSON Object body as part of the Request containin
 
 ### Example
 
-```json
+```javascript
 {
     username: 'YourAwesomeUsername',
     imageUrl: 'data:image/jpeg;base64,/9j/4AAQSkZ...FjWa0aP/Z'
