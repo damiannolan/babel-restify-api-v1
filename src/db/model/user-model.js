@@ -15,11 +15,9 @@ const UserModel = mongoose.Schema({
         type: String,
         required: true
     },
-    highScores: {
-        addition: { type: Number },
-        subtraction: { type: Number },
-        multiplication: { type: Number }
-    },
+    additionScore: { type: Number },
+    subtractionScore: { type: Number },
+    multiplicationScore: { type: Number },
     createdAt: {
         type: Date,
         default: Date.now
