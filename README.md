@@ -93,10 +93,34 @@ Each of the endpoints listed above take a JSON Object body as part of the Reques
 
 ## Heroku Deployment
 
-The web service has been deployed to [Heroku](https://www.heroku.com/) using the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) in conjunction with the [MongoLab](https://elements.heroku.com/addons/mongolab) add-on for cloud hosted databases.
+The web service has been deployed to [Heroku](https://www.heroku.com/) using the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) in conjunction with the [MongoLab's mLab](https://elements.heroku.com/addons/mongolab) add-on for cloud hosted databases.
+
+Deploy your own Heroku Service using these simple Heroku CLI commands where $MY_APP is your own application name.
+
+```
+heroku create $MY_APP
+
+heroku addons:create mongolab
+
+git add .
+git commit -m 'Pushing to Heroku'
+git push heroku master
+```
+
+Your brand new Node.js web service is availabe at - https://$MY_APP.herokuapp.com.
+
+Verify that the Node.js web service is alive by using the `healthcheck` endpoint with a HTTP client such as cURL or Postman. A healthy application build and deployment should yield a HTTP 200 OK. 
+
+For Example:
+
+```
+curl -v https://$MY_APP.herokuapp.com/healthcheck
+```
+
+**NOTE**: When you create a mLab add-on, the database connection URI is stored as a config var. Heroku config variables are equivalent to an environment variable, which you can use in development and your local environment. You can access this variable in your Node.js code as process.env.MONGODB_URI.
 
 ## Microsoft Face API
 
 An API Key for consuming the Microsoft Cognitive Services Face API can be obtained [here!](https://azure.microsoft.com/en-us/try/cognitive-services/).
 
-NOTE: This service currently employs a limited 30 day trial of the Face API service and is scheduled to expire on May 6th 2018.
+**NOTE**: This service currently employs a limited 30 day trial of the Face API service and is scheduled to expire on May 6th 2018.
