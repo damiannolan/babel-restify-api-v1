@@ -109,7 +109,7 @@ git push heroku master
 
 Your brand new Node.js web service is availabe at - https://$MY_APP.herokuapp.com.
 
-Verify that the Node.js web service is alive by using the `healthcheck` endpoint with a HTTP client such as cURL or Postman. A healthy application build and deployment should yield a HTTP 200 OK. 
+Verify that the Node.js web service is alive by using the `healthcheck` endpoint with a HTTP client such as [cURL](https://curl.haxx.se/) or [Postman](https://www.getpostman.com/). A healthy application build and deployment should yield a HTTP 200 OK. 
 
 For Example:
 
@@ -117,7 +117,7 @@ For Example:
 curl -v https://$MY_APP.herokuapp.com/healthcheck
 ```
 
-**NOTE**: When you create a mLab add-on, the database connection URI is stored as a config var. Heroku config variables are equivalent to an environment variable, which you can use in development and your local environment. You can access this variable in your Node.js code as process.env.MONGODB_URI.
+**NOTE**: When you create a mLab add-on, the database connection URI is stored as a config var. Heroku config variables are equivalent to an environment variable, which you can use in development and your local environment. You can access this variable in your Node.js code as `process.env.MONGODB_URI`.
 
 ## Microsoft Face API
 
