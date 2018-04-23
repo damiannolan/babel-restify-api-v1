@@ -10,3 +10,13 @@ export const getUserIdByUsername = async (username) => {
         throw new Error(`User ${username} does not exist`);
     }
 };
+
+export const getUserData = async (username) => {
+    try {
+        const result = await User.findOne({ username: username });
+        return result._doc;
+    } catch (e) {
+        log.debug(e);
+        throw new Error(`User ${username} does not exist`);
+    }
+};

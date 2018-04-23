@@ -5,7 +5,10 @@ export const createUser = async (userId, username, persistedFaceId) => {
         const user = new User({
             userId: userId,
             username: username,
-            persistedFaceId: persistedFaceId
+            persistedFaceId: persistedFaceId,
+            additionScore: 0,
+            subtractionScore: 0,
+            multiplicationScore: 0
         });
 
         return await user.save();

@@ -1,7 +1,7 @@
 import * as restify from 'restify';
 import request from 'request-promise-native';
 import { createUser } from '../../db/commands';
-import { getUserIdByUsername } from '../../db/queries';
+import { getUserData, getUserIdByUsername } from '../../db/queries';
 import { logger as log } from '../../logger';
 import { addFace, createPerson, detectFace, verifyFace } from '../../services';
 
@@ -19,7 +19,10 @@ const register = async (req, res) => {
         const payload = {
             persistedFaceId: dbResp.persistedFaceId,
             username: dbResp.username,
-            userId: dbResp.userId
+            userId: dbResp.userId,
+            additionScore: dbResp.additionScore,
+            subtractionScore: dbResp.subtractionScore,
+            multiplicationScore: dbResp.multiplicationScore
         };
 
         res.send(201, payload);
@@ -31,12 +34,24 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
     try {
+        // userId and personId are effectively the same thing
         const userId = await getUserIdByUsername(req.body.username);
         const faceId = await detectFace(req.body.imageUrl);
         const result = await verifyFace(faceId, userId);
 
         if(result.confidence > .70) { // > 70% accuracy is accepted
-            res.send(200, { result: result });
+            const dbResp = await getUserData(req.body.username);
+
+            const payload = {
+                persistedFaceId: dbResp.persistedFaceId,
+                username: dbResp.username,
+                userId: dbResp.userId,
+                additionScore: dbResp.additionScore,
+                subtractionScore: dbResp.subtractionScore,
+                multiplicationScore: dbResp.multiplicationScore
+            };
+            
+            res.send(200, payload);
         } else {
             res.send(400, { error: 'Bad Request - Failed to verify face' });
         }
