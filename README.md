@@ -93,7 +93,9 @@ Each of the endpoints listed above take a JSON Object body as part of the Reques
 
 ## Heroku Deployment
 
-The web service has been deployed to [Heroku](https://www.heroku.com/) using the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) in conjunction with the [MongoLab's mLab](https://elements.heroku.com/addons/mongolab) add-on for cloud hosted databases.
+The web service has been deployed to [Heroku](https://www.heroku.com/) using the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) in conjunction with the [MongoLab's mLab](https://elements.heroku.com/addons/mongolab) add-on for cloud hosted databases. 
+
+The service is currently available at: https://restify-face-service.herokuapp.com/
 
 Deploy your own Heroku Service using these simple Heroku CLI commands where $MY_APP is your own application name.
 
