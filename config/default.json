@@ -12,7 +12,7 @@
         "Microsoft": {
             "FaceAPI": {
                 "baseURL": "https://westcentralus.api.cognitive.microsoft.com/face/v1.0",
-                "apiKey1": "96069275ef1d49609e354d7931be32fa",
+                "apiKey1": "ef9deca403ca42eaae963c0b3d0b92c3",
                 "apiKey2": "83971e54f34f4973ba58feccf9a1cc00",
                 "personGroupId": "person-db"
             }
