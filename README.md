@@ -119,6 +119,9 @@ For Example:
 curl -v https://$MY_APP.herokuapp.com/healthcheck
 ```
 
+### Video Demo
+https://www.youtube.com/watch?v=9fjCsax9fjQ
+
 **NOTE**: When you create a mLab add-on, the database connection URI is stored as a config var. Heroku config variables are equivalent to an environment variable, which you can use in development and your local environment. You can access this variable in your Node.js code as `process.env.MONGODB_URI`.
 
 ## Microsoft Face API
@@ -126,3 +129,4 @@ curl -v https://$MY_APP.herokuapp.com/healthcheck
 An API Key for consuming the Microsoft Cognitive Services Face API can be obtained [here!](https://azure.microsoft.com/en-us/try/cognitive-services/).
 
 **NOTE**: This service currently employs a limited 30 day trial of the Face API service and is scheduled to expire on May 6th 2018.
+
